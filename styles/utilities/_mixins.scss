@@ -1,0 +1,7 @@
+@mixin flexCenter ($wrap, $direction, $align, $justify) {
+    display: flex;
+    flex-wrap: $wrap;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}

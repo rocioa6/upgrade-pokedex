@@ -1,0 +1,759 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,900);
+main {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(/images/wallpaper.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/wallpaper.jpg);
+  background-size: contain;
+  max-width: 100vw;
+  min-height: 100vh;
+  font-family: "Kanit", sans-serif;
+}
+
+.header {
+  font-family: "Kanit", sans-serif;
+  font-size: 3.5rem;
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: #f2d94e;
+  text-shadow: -2px -2px 0 #25098d, 2px -2px 0 #25098d, -2px 2px 0 #25098d, 2px 2px 0 #25098d;
+}
+
+.header:before {
+  right: 0.5em;
+  margin-left: -50%;
+  background-color: #25098d;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.header:after {
+  left: 0.5em;
+  margin-right: -50%;
+  background-color: #25098d;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.inputContainer {
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.1rem;
+}
+
+#search-input {
+  text-align: center;
+  width: 350px;
+}
+
+.poke-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px;
+}
+
+.type {
+  /* @include flexCenter(wrap, row, center, center); */
+  margin: 15px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[9];
+      grid-template-columns: repeat(9, 1fr);
+  justify-items: center;
+}
+
+.type__selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  height: 60px;
+  width: 60px;
+}
+
+.icon:hover {
+  -webkit-box-shadow: 0 0 20px;
+          box-shadow: 0 0 20px;
+  -webkit-filter: saturate(200%);
+          filter: saturate(200%);
+}
+
+.icon img {
+  height: 20px;
+}
+
+.pokemonContainer,
+.pokemonContainerBack {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-family: "Kanit", sans-serif;
+  width: 180px;
+  height: 250px;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.pokemonContainer:hover,
+.pokemonContainerBack:hover {
+  -webkit-box-shadow: 0 0 20px #595761;
+          box-shadow: 0 0 20px #595761;
+  border: 2px solid black;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: saturate(125%);
+          filter: saturate(125%);
+}
+
+.pokemonContainer__id,
+.pokemonContainerBack__id {
+  background-color: rgba(210, 210, 210, 0.35);
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.pokemonContainer__name,
+.pokemonContainerBack__name {
+  font-size: 1.3rem;
+  padding: 2px;
+  text-transform: capitalize;
+}
+
+.pokemonContainer__img,
+.pokemonContainerBack__img {
+  height: 7rem;
+  padding: 5px 5px 7px;
+  border-radius: 55px;
+  -webkit-box-shadow: 0 0 2px rgba(210, 210, 210, 0.52);
+          box-shadow: 0 0 2px rgba(210, 210, 210, 0.52);
+  background-color: rgba(210, 210, 210, 0.52);
+}
+
+.pokemonContainer__types,
+.pokemonContainerBack__types {
+  margin-top: 5px;
+  padding: 4px;
+}
+
+.pokemonContainer__types--type1, .pokemonContainer__types--type2,
+.pokemonContainerBack__types--type1,
+.pokemonContainerBack__types--type2 {
+  padding: 3px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  background-color: rgba(210, 210, 210, 0.35);
+  -webkit-box-shadow: 0 0 2px #848092;
+          box-shadow: 0 0 2px #848092;
+}
+
+.all {
+  background: #ebebeb;
+  -webkit-box-shadow: 0 0 20px #ebebeb;
+          box-shadow: 0 0 20px #ebebeb;
+}
+
+.bug {
+  background: #92bc2c;
+  -webkit-box-shadow: 0 0 20px #92bc2c;
+          box-shadow: 0 0 20px #92bc2c;
+}
+
+.dark {
+  background: #595761;
+  -webkit-box-shadow: 0 0 20px #595761;
+          box-shadow: 0 0 20px #595761;
+}
+
+.dragon {
+  background: #0c69c8;
+  -webkit-box-shadow: 0 0 20px #0c69c8;
+          box-shadow: 0 0 20px #0c69c8;
+}
+
+.electric {
+  background: #f2d94e;
+  -webkit-box-shadow: 0 0 20px #f2d94e;
+          box-shadow: 0 0 20px #f2d94e;
+}
+
+.fire {
+  background: #fba54c;
+  -webkit-box-shadow: 0 0 20px #fba54c;
+          box-shadow: 0 0 20px #fba54c;
+}
+
+.fairy {
+  background: #ee90e6;
+  -webkit-box-shadow: 0 0 20px #ee90e6;
+          box-shadow: 0 0 20px #ee90e6;
+}
+
+.fighting {
+  background: #d3425f;
+  -webkit-box-shadow: 0 0 20px #d3425f;
+          box-shadow: 0 0 20px #d3425f;
+}
+
+.flying {
+  background: #a1bbec;
+  -webkit-box-shadow: 0 0 20px #a1bbec;
+          box-shadow: 0 0 20px #a1bbec;
+}
+
+.ghost {
+  background: #5f6dbc;
+  -webkit-box-shadow: 0 0 20px #5f6dbc;
+          box-shadow: 0 0 20px #5f6dbc;
+}
+
+.grass {
+  background: #5fbd58;
+  -webkit-box-shadow: 0 0 20px #5fbd58;
+          box-shadow: 0 0 20px #5fbd58;
+}
+
+.ground {
+  background: #da7c4d;
+  -webkit-box-shadow: 0 0 20px #da7c4d;
+          box-shadow: 0 0 20px #da7c4d;
+}
+
+.ice {
+  background: #75d0c1;
+  -webkit-box-shadow: 0 0 20px #75d0c1;
+          box-shadow: 0 0 20px #75d0c1;
+}
+
+.normal {
+  background: #a0a29f;
+  -webkit-box-shadow: 0 0 20px #a0a29f;
+          box-shadow: 0 0 20px #a0a29f;
+}
+
+.poison {
+  background: #b763cf;
+  -webkit-box-shadow: 0 0 20px #b763cf;
+          box-shadow: 0 0 20px #b763cf;
+}
+
+.psychic {
+  background: #fa8581;
+  -webkit-box-shadow: 0 0 20px #fa8581;
+          box-shadow: 0 0 20px #fa8581;
+}
+
+.rock {
+  background: #c9bb8a;
+  -webkit-box-shadow: 0 0 20px #c9bb8a;
+          box-shadow: 0 0 20px #c9bb8a;
+}
+
+.steel {
+  background: #5695a3;
+  -webkit-box-shadow: 0 0 20px #5695a3;
+          box-shadow: 0 0 20px #5695a3;
+}
+
+.water {
+  background: #539ddf;
+  -webkit-box-shadow: 0 0 20px #539ddf;
+          box-shadow: 0 0 20px #539ddf;
+}
+
+/* Load google's Roboto font*/
+/* Reboot */
+html,
+body {
+  margin: 0 !important;
+}
+
+/* Typography */
+body {
+  font-family: "Roboto", "Helvetica Neue, Helvetica, Arial";
+}
+
+/*Convertion Ration sp to rem for html */
+.base-h1 {
+  font-weight: 300;
+  font-size: 6rem;
+  letter-spacing: -0.00098px;
+}
+
+.base-h2 {
+  font-weight: 300;
+  font-size: 3.75rem;
+  letter-spacing: -0.00052px;
+}
+
+.base-h3 {
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: 0px;
+}
+
+.base-h4 {
+  font-weight: 400;
+  font-size: 2.125rem;
+  letter-spacing: 0.00046px;
+}
+
+.base-h5 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0px;
+}
+
+.base-h6 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.00047px;
+}
+
+.base-subtitle1 {
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.00059px;
+}
+
+.base-subtitle2 {
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.00045px;
+}
+
+.base-body1 {
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.00195px;
+}
+
+.base-body2 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  letter-spacing: 0.00112px;
+}
+
+.base-button {
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.00335px;
+  text-transform: uppercase;
+}
+
+.base-caption {
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.00208px;
+}
+
+.base-overline {
+  font-weight: 400;
+  font-size: 0.625rem;
+  letter-spacing: 0.00937px;
+  text-transform: uppercase;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+html {
+  background: #fff;
+  color: #000;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  background: transparent;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover, a:active {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: "“" "”" "‘" "’";
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+/*# sourceMappingURL=main.css.map */
